@@ -29,7 +29,7 @@
         "memoryReservation": 128,
         "volumesFrom": [],
         "stopTimeout": null,
-        "image": "441890037319.dkr.ecr.us-east-2.amazonaws.com/fast_api_movies:e0950afb5fa5092721d0fb7508e01cf01b5394c7",
+        "image": "441890037319.dkr.ecr.us-east-2.amazonaws.com/fast_api_movies",
         "startTimeout": null,
         "firelensConfiguration": null,
         "dependsOn": null,
@@ -56,8 +56,8 @@
       "EXTERNAL",
       "EC2"
     ],
-    "taskDefinitionArn": "arn:aws:ecs:us-east-2:441890037319:task-definition/fast_api_movies_task:4",
-    "family": "fast_api_movies_task",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-2:441890037319:task-definition/fast-api-movies-task:1",
+    "family": "fast-api-movies-task",
     "requiresAttributes": [
       {
         "targetId": null,
@@ -78,7 +78,7 @@
     ],
     "networkMode": null,
     "cpu": null,
-    "revision": 4,
+    "revision": 1,
     "status": "ACTIVE",
     "inferenceAccelerators": null,
     "proxyConfiguration": null,
