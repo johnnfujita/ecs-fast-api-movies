@@ -71,13 +71,13 @@ jobs:
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
         task-definition: fast_api_movies_task.json
-        container-name: fast_api_movies_container
+        container-name: fast_api_movies
         image: ${{ steps.build-image.outputs.image }}
 
     - name: Deploy Amazon ECS task definition
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
-        service: fast_api_movies_service
+        service: fast-api-movies-service
         cluster: basic-small-cluster
         wait-for-service-stability: true
