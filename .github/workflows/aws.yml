@@ -26,6 +26,8 @@
 on:
   release:
     types: [created]
+  workflow_dispatch:
+    
 
 name: Deploy to Amazon ECS
 
@@ -54,7 +56,7 @@ jobs:
       id: build-image
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: my-ecr-repo
+        ECR_REPOSITORY: fast_api_movies
         IMAGE_TAG: ${{ github.sha }}
       run: |
         # Build a docker container and
@@ -68,14 +70,14 @@ jobs:
       id: task-def
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
-        task-definition: task-definition.json
-        container-name: sample-app
+        task-definition: fast_api_movies_task.json
+        container-name: fast_api_movies_container
         image: ${{ steps.build-image.outputs.image }}
 
     - name: Deploy Amazon ECS task definition
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
-        service: sample-app-service
-        cluster: default
+        service: fast_api_movies_service
+        cluster: basic-small-cluster
         wait-for-service-stability: true
