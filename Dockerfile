@@ -12,9 +12,9 @@ RUN pip3 install -r /app/requirements.txt
 COPY service/ /app
 
 # ENTRYPOINT /usr/local/bin/gunicorn \
-#   -b 0.0.0.0:8000 \
-#   -w 4 \
-#   -k uvicorn.workers.UvicornWorker main:app \
-#   --chdir /app
-  
-  CMD ["uvicorn",  "main:app", "--host=0.0.0.0", "--port", "8000"]
+  # -b 0.0.0.0:8000 \
+  # -w 4 \
+  # -k uvicorn.workers.UvicornWorker main:app \
+  # --chdir /app
+ENTRYPOINT [ "/usr/local/bin/gunicorn", "-b", "0.0.0.0:8000", "-w", "5", "-k", "uvicorn.workers.UvicornWorker", "main:app", "--chdir", "/app" ]  
+# CMD ["uvicorn",  "main:app", "--host=0.0.0.0", "--port", "8000"]
