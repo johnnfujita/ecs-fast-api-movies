@@ -1,5 +1,5 @@
 from starlette.responses import Response
-from ..service.main import app
+from service.main import app
 from httpx import AsyncClient
 from fastapi.testclient import TestClient
 import pytest
