@@ -1,9 +1,9 @@
 from typing import List
-from service.models.movie_model import MovieModel, ItemModel
+from .models.movie_model import MovieModel, ItemModel
 from fastapi import FastAPI
 import fastapi
 import uvicorn
-import service.movie_data
+from . import movie_data
 
 app = FastAPI()
 
