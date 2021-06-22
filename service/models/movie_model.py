@@ -6,3 +6,7 @@ class MovieModel(BaseModel):
     keywords: List[str] = []
     director: str
     year: int
+
+class ItemModel(BaseModel):
+    title: str
+    description: str

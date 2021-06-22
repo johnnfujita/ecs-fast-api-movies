@@ -1,4 +1,4 @@
-from models.movie_model import MovieModel
+from service.models.movie_model import MovieModel
 from typing import Optional
 import httpx
 
